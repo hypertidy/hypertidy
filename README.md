@@ -28,3 +28,10 @@
 - [x] release `unjoin` and `gibble` for use by the sc family
 
 
+# overall approach
+
+The hypertidy approach to complex data structures aims to bring the goals of the tidyverse to *spatial data* with this single point of perspective: the only thing that makes **geo-spatial data** special is the system of coordinate transformations that provide a family of compromises for generating and working with a particular set of space-properties. All the other aspects that get special attention are completely shared by other domains such as graphics, model structures, grid domains and aspects of user-interactivity and ease of use. Further, the *tidy principles* dictate that the majority of data manipulation and analysis is best handled using *database principles and technologies*, and "geo-spatial" is no different. No special handling is required, and we believe strongly, current idioms and established practices involving special handling hinder innovation, education and understanding generally. Other fields have essentially solved all of the main problems in data analysis, handling and user-interaction but traditions in other fields are preventing the use of these solutions in optimal ways. 
+
+This applies to drawings, GIS vector points, lines, areas, simple features, segment-based linear paths, triangulations and other forms of meshes, and we consider them all to be one of a *piecewise linear complex* or a *simplicial complex*, with (this bit is crucial) *further levels of organization within and between primitive components*. 
+
+Recent legacy optimizations made in geo-spatial fields have seen a strong focus on the *path*, which is an ordered sequence of coordinates, and the path is implicit, defined by "joining the dots" between each coordinate. There is a *dual* to the path, which is an unordered set of *edges* (a.k.a. line segments) where each pair of coordinates traversed by an edge is reference implicitly *by name*. 
