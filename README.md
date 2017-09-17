@@ -35,3 +35,12 @@ The hypertidy approach to complex data structures aims to bring the goals of the
 This applies to drawings, GIS vector points, lines, areas, simple features, segment-based linear paths, triangulations and other forms of meshes, and we consider them all to be one of a *piecewise linear complex* or a *simplicial complex*, with (this bit is crucial) *further levels of organization within and between primitive components*. 
 
 Recent legacy optimizations made in geo-spatial fields have seen a strong focus on the *path*, which is an ordered sequence of coordinates, and the path is implicit, defined by "joining the dots" between each coordinate. There is a *dual* to the path, which is an unordered set of *edges* (a.k.a. line segments) where each pair of coordinates traversed by an edge is reference implicitly *by name*. 
+
+This provides a *set of forms* for complex structures that collectively allows generic transformation workflows. 
+
+* 0. Bespoke formats. This is what we have, there are many. 
+* 1. Structural vertex-instance set and path-geometry map. 
+* 2. Normal form path topology. 
+* 3. simplicial complex forms
+
+The last two here include vertex-topology, in that each vertex is a unique coordinate and may be referenced multiple times. 1 is a special case for transition between path based forms
