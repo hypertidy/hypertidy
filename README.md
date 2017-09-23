@@ -44,3 +44,18 @@ This provides a *set of forms* for complex structures that collectively allows g
 * 3. simplicial complex forms
 
 The last two here include vertex-topology, in that each vertex is a unique coordinate and may be referenced multiple times. 1 is a special case for transition between path based forms
+
+There are several required forms. It's not clear to me that the below is a sequence, for example arc-node is not necessarily a good pathway from 3 to 5, since 4 is an specialization of planar linear forms for polygons or networks, not an required intermediate. 
+
+1 and 2 suffer from requiring an implicit or structural order for the sequence of coordinates within a path. 
+
+1. Paths in multiple tables with a form of structure index, a *run-length* map. This is what sc_coord, sc_path, and sc_object provide. 
+2. Relational paths, no structural index and no de-duplication, all that is needed is vertex, path, object. 
+3. Relational paths normalized by vertex, requires a path_link_vertex table to link the path and de-duplicated vertices. 
+4. Relational paths normalized by vertex and by path. It's probably never worth normalizing a polgonal path, but it is worth it for arc-node models, such as TopoJSON, OSM ways, and the data at the core of the maps package. 
+5. Relational directed linear segments, first form treats segments in the way that 2 treat coordinates - no de-duplication, and so the path is record with the segment ID.  
+6. Relational undirected linear segments, this second form de-duplicates segments, ignoring their orientation, and requires a new link table between segment and path (that is where the orientatoin could be stored, if it's needed). (This is what TopoJSON does, storing a 1 or -1 for orientation. 
+7. Relational triangles, composed of segments. 
+8. Relational triangles, forget the segments. 
+9. Higher forms? 
+
