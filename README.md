@@ -59,3 +59,39 @@ There are several required forms. It's not clear to me that the below is a seque
 8. Relational triangles, forget the segments. 
 9. Higher forms? 
 
+
+
+path 
+ - same for polygons and lines and points
+ - involves normalization of vertices, but maybe it should not
+ - object, path, coordinate 
+ - combining paths is trivial, possibly is the lowest common denom for merging
+
+
+path_topological
+ - could involve vertex normalization
+ - arc normalization? 
+ - how to record/infer closed paths, probably is explicit?
+ - object, path, coordinate, vertex
+ - combining these is tough, need first to 
+   -- expand all coords?
+   -- normalize vertices of separete inputs, then merge?
+  
+: arc normalization is problematic I think, does it imply segment normalizatoin first?
+
+: is part of the key here to keep links to the inputs as they were? 
+
+segment / 1D primitive
+ - true edge graph
+ - definitely requires node inference and inclusion
+
+triangles / 2D primitive
+ - segment is truly a prerequisite
+ - CGAL seems prone to duplicates and cross over segs
+
+
+
+Inputs? 
+  
+  - lines and lines, needs noding result is 
+
