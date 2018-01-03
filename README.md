@@ -20,7 +20,7 @@
 **silicate**
 - [ ] dynamic edges, record original start/end edge with throw-away Steiner points?
 - [ ] inner cascade and semi cascade, names for the concept, activate to start in the middle, formal join-ramp
-- [ ] 
+- [x] finish edge and arc-node workers
 
 
 - [x] restructure sc around the gibble concept
