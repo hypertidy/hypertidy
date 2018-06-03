@@ -105,6 +105,10 @@ Inputs?
   - lines and lines, needs noding result is 
 
 
+# Lessons from silicore
+
+https://github.com/hypertidy/silicore#the-longer-silicore-story
+
 
 # Lessons from the space bucket
 
