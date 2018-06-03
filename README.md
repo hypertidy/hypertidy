@@ -3,6 +3,15 @@
 
 ## The hypertidy work plan
 
+Build out a core set of packages for developing projects. 
+
+**core components**
+
+- [ ] point-in-polygon (see pfft, spacebucket, polyclip)
+- [ ] path-reconstruction-from-edges (dodgr magic)
+- [ ] distance-to and distance-from (best currently is spatstat and sf)
+- [ ] discretization and other forms of coordinate transformation
+- [ ] core input interfaces that are lazy, see lazyraster/vapour and tidync as workings toward a common framework
 
 **vapour**
 - [ ] check vapour on MacOS
