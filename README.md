@@ -104,3 +104,31 @@ Inputs?
   
   - lines and lines, needs noding result is 
 
+
+
+# Lessons from the space bucket
+
+## Point in polygon is core. 
+
+Determining if a point falls inside a ring is classifying that point with that path. When paths can be nested there needs to be logic for holes, and for multiple classifications - however it's achieved. Obviously the search space can be optimized for multi-points, multi-paths. 
+
+In hypertidy/pfft we isolate the conversion of an edge-form to a triangulation and its complementary point-in-path so we can filter out holes and classify triangle instances. 
+
+## Paths or segments?
+
+We absolutely need both, for intersections we need the triangle filtering/classification. The gibble is a run-length-encoding into the
+in-order set of coordinate instances, and this is straightforward from 
+native-sf, and also straightforward from the dense vertex set as long as the order can be maintained - otherwise via path-composition from arbitrary edges. I feel that the gibble is invalidated by vertex densification, and probably we don't care if path-composition is trivial, and holes are inherent in triangulations anyway. At any rate, if we use a triangulation for intersection, then it is the dead-end, because it provides information about
+the SF inputs. Otherwise we leave the inputs behind and use only primitives, then restore as needed. 
+
+## Extents is core
+
+We need entities that act like a set of bbox/extents - storing only four
+numbers for each. An SF-form from these is purely on-demand. A raster is
+the densest, a rectlinear grid is next, and corner-based mesh is next, then 
+the set of quads as a special case of the more general "set of extents". 
+
+We use an extents entity to quad-tree optimize things like point-in-polygon
+classification. 
+
+
